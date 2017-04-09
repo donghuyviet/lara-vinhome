@@ -37,6 +37,7 @@
                             <th>#</th>
                             <th>Title</th>
                             <th>Slug</th>
+                            <th>status</th>
                             <th>Create date</th>
                             <th>Update date</th>
                             <th></th>
@@ -46,6 +47,12 @@
                             <td>{{$cate->id}}</td>
                             <td>{{$cate->title_cate}}</td>
                             <td>{{$cate->slug}}</td>
+                            <td>@if($cate->status == 0) 
+                                Hiện
+                                @else
+                                Ẩn
+                                @endif
+                            </td>
                             <td>{{$cate->created_at}}</td>
                             <td>{{$cate->updated_at}}</td>
                             <td>
@@ -58,22 +65,7 @@
                     </div>
                     <div class="text-right">
                         <nav aria-label="Page navigation">
-                            <ul class="pagination">
-                                <li>
-                                    <a href="#" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                    </a>
-                                </li>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li>
-                                    <a href="#" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                </li>
+                            {{$category->links()}}
                             </ul>
                         </nav>
                     </div>

@@ -13,7 +13,7 @@
             <div class="">
                 <div class="box-header">
                     Manager Category
-                    <a class="btn btn-default" href="/admin/articels/add">Add Articels</a>
+                    <a class="btn btn-default" href="/admin/slide/add">Add Slide Galary</a>
                 </div>
                 <div class="box-content">
                     <h2>Manager Category</h2>
@@ -48,8 +48,13 @@
                             <td>{{$sli->id}}</td>
                             <td>{{str_limit($sli->title, 100)}}</td>
                             <td>{{$sli->description}}</td>
-                            <td>{{$sli->images}}</td>
-                            <td>{{$sli->status}}</td>
+                            <td><img src="/uploads/admin/slide/{{$sli->images}}" width="80px;" height="80px;"></td>
+                            <td>@if($sli->title_cate == 0) 
+                                Hiện
+                                @else
+                                Ẩn
+                                @endif
+                            </td>
                             <td>{{$sli->created_at}}</td>
                             <td>{{$sli->updated_at}}</td>
                             <td>
@@ -62,23 +67,7 @@
                     </div>
                     <div class="text-right">
                         <nav aria-label="Page navigation">
-                            <ul class="pagination">
-                                <li>
-                                    <a href="#" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                    </a>
-                                </li>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li>
-                                    <a href="#" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                </li>
-                            </ul>
+                            {{$slide->links()}}
                         </nav>
                     </div>
 

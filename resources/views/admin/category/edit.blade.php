@@ -41,7 +41,19 @@
                                 <input type="text" class="form-control" id="idtitle" placeholder="Slug: slug-bai-viet" name="slug" value="{{$edit->slug}}">
                             </div>                            
                         </div>
-                        
+                        <div class="form-group">
+                            <label for="" class="col-sm-3 control-label">Status</label>
+                            <div class="col-sm-8">
+                                <label>
+                                    <input type="radio" name="status" id="optionsRadios1" value="0" checked>
+                                    Hiện
+                                </label>
+                                <label>
+                                    <input type="radio" name="status" id="optionsRadios2" value="1">
+                                    Ẩn
+                                </label>
+                            </div>                            
+                        </div>
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
                                 <button type="submit" class="btn btn-primary">Save</button>

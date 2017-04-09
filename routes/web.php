@@ -76,22 +76,31 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('/', function ()    {
                 return "echo abc";
             });
+            Route::group(['prefix'=>'articels'], function(){
+                Route::get('/','AdminArticelController@index');
+                Route::get('/add','AdminArticelController@add');
+                Route::post('/store','AdminArticelController@store');
+                Route::get('/edit/{id}','AdminArticelController@edit');
+                Route::post('/edit/{id}','AdminArticelController@update');
+                Route::get('/delete/{id}','AdminArticelController@delete');
+            });
 
-            Route::get('/articels','AdminArticelController@index');
-            Route::get('/articels/add','AdminArticelController@add');
-            Route::post('/articels/store','AdminArticelController@store');
-            Route::get('/articels/edit/{id}','AdminArticelController@edit');
-            Route::post('/articels/edit/{id}','AdminArticelController@update');
-            Route::get('/articels/delete/{id}','AdminArticelController@delete');
-
-            Route::get('/category','AdminCategoryController@index');
-            Route::get('/category/add','AdminCategoryController@add');
-            Route::post('/category/store','AdminCategoryController@store');
-            Route::get('/category/edit/{id}','AdminCategoryController@edit');
-            Route::post('/category/edit/{id}','AdminCategoryController@update');
-            Route::get('/category/delete/{id}','AdminCategoryController@delete');
-
-            Route::get('/slide','AdminSlideController@index');
+            Route::group(['prefix'=>'category'], function(){
+                Route::get('/','AdminCategoryController@index');
+                Route::get('/add','AdminCategoryController@add');
+                Route::post('/store','AdminCategoryController@store');
+                Route::get('/edit/{id}','AdminCategoryController@edit');
+                Route::post('/edit/{id}','AdminCategoryController@update');
+                Route::get('/delete/{id}','AdminCategoryController@delete');
+            });
+            Route::group(['prefix'=>'slide'], function(){
+                Route::get('/','AdminSlideController@index');
+                Route::get('/add','AdminSlideController@add');
+                Route::post('/store','AdminSlideController@store');
+                Route::get('/edit/{id}','AdminSlideController@edit');
+                Route::post('/edit/{id}','AdminSlideController@update');
+                Route::get('/delete/{id}','AdminSlideController@delete');
+            });
         });
 });
 Route::get('/api/keyword','ApiSearchController@index');

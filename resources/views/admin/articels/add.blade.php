@@ -53,6 +53,12 @@
                             </div>                            
                         </div>
                         <div class="form-group">
+                            <label for="" class="col-sm-3 control-label">Hình Ảnh</label>
+                            <div class="col-sm-6">
+                                <input class="form-control " name="images" type="file" ></input>
+                            </div>                            
+                        </div>
+                        <div class="form-group">
                             <label for="" class="col-sm-3 control-label">Desc-meta</label>
                             <div class="col-sm-8">
                                 <textarea class="form-control ckeditor" name="desc" id="editor1" ></textarea>
@@ -69,11 +75,11 @@
                             <div class="col-sm-8">
                                 <label>
                                     <input type="radio" name="status" id="optionsRadios1" value="0" checked>
-                                    ẩn
+                                    Hiện
                                 </label>
                                 <label>
                                     <input type="radio" name="status" id="optionsRadios2" value="1">
-                                    hiện
+                                    Ẩn
                                 </label>
                             </div>                            
                         </div>

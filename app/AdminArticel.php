@@ -12,6 +12,7 @@ class AdminArticel extends Model
         'id',
         'title',
         'slug',
+        'images',
         'description',
         'status',
         'desc',

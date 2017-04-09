@@ -14,7 +14,8 @@ class AdminArticelController extends Controller
      	$articel = DB::table('articel')
             ->join('category', 'articel.cate_id', '=', 'category.id')
             ->select('articel.*', 'category.title_cate')
-            ->get();
+            ->paginate(10);
+        $paginate = AdminArticel::paginate(2);
     	return view('/admin/articels/index',['articel'=>$articel]);
     }
     public function add(){
@@ -42,13 +43,30 @@ class AdminArticelController extends Controller
             $AdminArticel->id = $request->id;
             $AdminArticel->title = $request->title;
             $AdminArticel->slug = changTitle($request->slug);
+            if($request->hasFile('images')){
+                $file = $request->file('images');
+                $duoi = $file->getClientOriginalExtension();
+                if($duoi !='jpg' && $duoi !='png' && $duoi !='jepg'){
+                    return redirect('admin/articels/')-> with('success', 'Warning! Bạn chỉ được chọn đuổi png, jpg, jepg');
+                }
+                $name = $file->getClientOriginalName();
+                $images = str_random(4)."_".$name;
+
+                while(file_exists("uploads/admin/articels".$images)){
+                    $images = str_random(4)."_".$name;
+                }
+                $file->move('uploads/admin/articels',$images);
+                $AdminArticel->images = $images;
+            }else{
+                $AdminArticel->images= "";
+            }
             $AdminArticel->description = $request->description;
             $AdminArticel->desc = $request->desc;
             $AdminArticel->status = $request->status;
             $AdminArticel->cate_id = $request->AdminCategory;
 
             $AdminArticel->save();
-            return redirect('/admin/articels/add')-> with('success', 'add '.$AdminArticel -> title.' success');
+            return redirect('/admin/articels')-> with('success', 'add '.$AdminArticel -> title.' success');
     }
     public function edit($id){
     	$edit = AdminArticel::find($id);
@@ -71,6 +89,21 @@ class AdminArticelController extends Controller
             $category->id = $request->id;
             $category->title = $request->title;
             $category->slug = changTitle($request->slug);
+            if($request->hasFile('images')){
+                $file = $request->file('images');
+                $duoi = $file->getClientOriginalExtension();
+                if($duoi !='jpg' && $duoi !='png' && $duoi !='jepg'){
+                    return redirect('admin/articels/')-> with('success', 'Warning! Bạn chỉ được chọn đuổi png, jpg, jepg');
+                }
+                $name = $file->getClientOriginalName();
+                $images = str_random(4)."_".$name;
+
+                while(file_exists("uploads/admin/articels".$images)){
+                    $images = str_random(4)."_".$name;
+                }
+                $file->move('uploads/admin/articels',$images);
+                $category->images = $images;
+            }
             $category->cate_id = $request->AdminCategory;
 
             $category->save();

@@ -9,7 +9,7 @@ class AdminCategoryController extends Controller
 {
     //
      public function index(){
-     	$category = AdminCategory::all();
+     	$category = AdminCategory::paginate(10);
     	return view('/admin/category/index',['category'=>$category]);
     }
     public function add(){
@@ -32,6 +32,7 @@ class AdminCategoryController extends Controller
             $category->id = $request->id;
             $category->title_cate = $request->title_cate;
             $category->slug = changtitle($request->slug);
+            $category->status = $request->status;
 
             $category->save();
             return redirect('/admin/category/')-> with('success', 'Add '.$category -> title_cate.' success');
@@ -57,6 +58,7 @@ class AdminCategoryController extends Controller
             $category->id = $request->id;
             $category->title_cate = $request->title_cate;
             $category->slug = changtitle($request->slug);
+            $category->status = $request->status;
 
             $category->save();
             return redirect('/admin/category/')-> with('success', 'Edit '.$category -> title_cate.' success');

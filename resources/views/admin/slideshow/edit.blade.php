@@ -8,11 +8,11 @@
      @include('admin.sidebar.menu')
 
     <div class="right_col" role="main">
-        <div class="row">
+       <div class="row">
         <div class="col-md-12">
             <div class="">
                 <div class="box-content">
-                    <div class="text-center"><h2>add articles</h2></div>
+                    <div class="text-center"><h2>Edit slide galary</h2></div>
                     @if(count($errors)>0)
                         <div class="alert alert-danger alert-dismissible" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -27,7 +27,7 @@
                             {{session('success')}}
                         </div>
                     @endif
-                    <form class="form-horizontal" method="POST" action="{{ url('/') }}/admin/articels/edit/{{$edit->id}}" enctype="multipart/form-data">
+                    <form class="form-horizontal" method="POST" action="{{ url('/') }}/admin/slide/edit/{{$edit->id}}" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                         <div class="form-group">
                             <label for="" class="col-sm-3 control-label">Title</label>
@@ -36,42 +36,16 @@
                             </div>                            
                         </div>
                         <div class="form-group">
-                            <label for="" class="col-sm-3 control-label">Slug</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" id="idtitle" placeholder="Slug: slug-bai-viet" name="slug" value="{{$edit->slug}}">
-                            </div>                            
-                        </div>
-                        <div class="form-group">
-                            <label for="" class="col-sm-3 control-label">Category</label>
-                            <div class="col-sm-8">
-                                <select class="form-control" name="AdminCategory" id="Theloai">
-                                    @foreach($cate as $tl)
-                                    <option 
-                                        @if($edit->AdminCategory == $tl->id)
-                                            {{"selected"}}
-                                        @endif
-                                        value="{{$tl->id}}">{{$tl->title_cate}}</option>
-                                    @endforeach
-                                </select>
-                            </div>                            
-                        </div>
-                        <div class="form-group">
-                            <label for="" class="col-sm-3 control-label">Hình Ảnh</label>
-                            <div class="col-sm-6">
-                                <img src="/uploads/admin/slide/{{$edit->images}}" width="150px;">
-                                <input class="form-control " name="images" type="file" value="{{$edit->images}}" ></input>
-                            </div>                            
-                        </div>
-                        <div class="form-group">
                             <label for="" class="col-sm-3 control-label">Desc-meta</label>
                             <div class="col-sm-8">
-                                <textarea class="form-control ckeditor" name="desc" value="" id="editor1" >{{$edit->desc}}</textarea>
+                                <input class="form-control " name="description" id="editor1" value="{{$edit->description}}" ></input>
                             </div>                            
                         </div>
                         <div class="form-group">
-                            <label for="" class="col-sm-3 control-label">Description</label>
-                            <div class="col-sm-8">
-                                <textarea class="form-control ckeditor" value="" name="description" id="editor1" >{{$edit->description}}</textarea>
+                            <label for="" class="col-sm-3 control-label">Images</label>
+                            <div class="col-sm-8"> 
+                                <img src="/uploads/admin/slide/{{$edit->images}}" width="150px;">
+                                <input class="form-control " name="images" type="file" value="{{$edit->images}}" ></input>
                             </div>                            
                         </div>
                         <div class="form-group">
