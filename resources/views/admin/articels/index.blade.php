@@ -41,6 +41,7 @@
                             <th>Desc</th>
                             <th>Description</th>
                             <th>Cate</th>
+                            <th>satus</th>
                             <th>Create date</th>
                             <th>Update date</th>
                             <th></th>
@@ -53,7 +54,8 @@
                             <td> <img src="/uploads/admin/articels/{{$art->images}}" width="80px" height="80px"></td>
                             <td>{{str_limit($art->desc, 100)}}</td>
                             <td>{{str_limit($art->description, 100)}}</td>
-                            <td>@if($art->title_cate == 0) 
+                            <td>{{$art->title_cate}}</td>
+                            <td>@if($art->status == 0) 
                                 Hiện
                                 @else
                                 Ẩn

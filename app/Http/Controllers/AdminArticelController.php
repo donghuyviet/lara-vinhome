@@ -104,6 +104,9 @@ class AdminArticelController extends Controller
                 $file->move('uploads/admin/articels',$images);
                 $category->images = $images;
             }
+            $category->description = $request->description;
+            $category->desc = $request->desc;
+            $category->status = $request->status;
             $category->cate_id = $request->AdminCategory;
 
             $category->save();

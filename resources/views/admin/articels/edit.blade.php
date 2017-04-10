@@ -58,7 +58,7 @@
                         <div class="form-group">
                             <label for="" class="col-sm-3 control-label">Hình Ảnh</label>
                             <div class="col-sm-6">
-                                <img src="/uploads/admin/slide/{{$edit->images}}" width="150px;">
+                                <img src="/uploads/admin/articels/{{$edit->images}}" width="150px;">
                                 <input class="form-control " name="images" type="file" value="{{$edit->images}}" ></input>
                             </div>                            
                         </div>
