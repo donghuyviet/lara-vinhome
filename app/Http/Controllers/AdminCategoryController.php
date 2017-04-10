@@ -19,10 +19,13 @@ class AdminCategoryController extends Controller
     public function store(Request $request){
     	$this->validate($request,
             [
-                'title_cate'=>'required|min:3|max:100'
+                'title_cate'=>'required|min:3|max:100',
+                'position'=>'required|unique:category',
             ],
             [
                 'title_cate.required'=>'bạn chưa nhập title_cate',
+                'position.required'=>'bạn chưa nhập vị trí cho Danh Mục',
+                'position.unique'=>'Vị trí danh mục không được trùng nhau',
                 'title_cate.min'=>'tên thể loại phải có độ dài từ 3 ký tự trở lên',
                 'title_cate.max'=>'tên thể loại phải có độ dài quá 100 ký tự',
             ]
@@ -33,6 +36,7 @@ class AdminCategoryController extends Controller
             $category->title_cate = $request->title_cate;
             $category->slug = changtitle($request->slug);
             $category->status = $request->status;
+            $category->position = $request->position;
 
             $category->save();
             return redirect('/admin/category/')-> with('success', 'Add '.$category -> title_cate.' success');
@@ -46,10 +50,13 @@ class AdminCategoryController extends Controller
         $category = AdminCategory::find($id);
     	$this->validate($request,
             [
-                'title_cate'=>'required|min:3|max:100'
+                'title_cate'=>'required|min:3|max:100',
+                'position'=>'required|unique:category',
             ],
             [
                 'title_cate.required'=>'bạn chưa nhập title_cate',
+                'position.required'=>'bạn chưa nhập vị trí cho Danh Mục',
+                'position.unique'=>'Vị trí danh mục không được trùng nhau',
                 'title_cate.min'=>'tên thể loại phải có độ dài từ 3 ký tự trở lên',
                 'title_cate.max'=>'tên thể loại phải có độ dài quá 100 ký tự',
             ]
@@ -59,6 +66,7 @@ class AdminCategoryController extends Controller
             $category->title_cate = $request->title_cate;
             $category->slug = changtitle($request->slug);
             $category->status = $request->status;
+            $category->position = $request->position;
 
             $category->save();
             return redirect('/admin/category/')-> with('success', 'Edit '.$category -> title_cate.' success');

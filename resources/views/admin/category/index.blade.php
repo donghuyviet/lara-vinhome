@@ -38,6 +38,7 @@
                             <th>Title</th>
                             <th>Slug</th>
                             <th>status</th>
+                            <th>Position</th>
                             <th>Create date</th>
                             <th>Update date</th>
                             <th></th>
@@ -53,6 +54,7 @@
                                 Ẩn
                                 @endif
                             </td>
+                            <td>{{$cate->position}}</td>
                             <td>{{$cate->created_at}}</td>
                             <td>{{$cate->updated_at}}</td>
                             <td>

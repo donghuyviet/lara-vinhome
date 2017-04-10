@@ -49,6 +49,9 @@ class AdminSlideController extends Controller
             }else{
                 $slide->images= "";
             }
+            if($request->has('url')){
+                $slide->url = $request->url;
+            }
             $slide->status = $request->status;
             $slide->save();
             return redirect('/admin/slide/')-> with('success', 'Add '.$slide -> title.' success');
@@ -74,6 +77,9 @@ class AdminSlideController extends Controller
             $category->id = $request->id;
             $category->title = $request->title;
             $category->description = $request->description;
+            if($request->has('url')){
+                $category->url = $request->url;
+            }
             if($request->hasFile('images')){
                 $file = $request->file('images');
                 $duoi = $file->getClientOriginalExtension();
@@ -86,11 +92,19 @@ class AdminSlideController extends Controller
                 while(file_exists("uploads/admin/slide".$images)){
                     $images = str_random(4)."_".$name;
                 }
+                unlink('uploads/admin/slide/'.$category->images);
                 $file->move('uploads/admin/slide',$images);
                 $category->images = $images;
             }
+            
             $category->status = $request->status;
             $category->save();
             return redirect('/admin/slide/')-> with('success', 'Edit '.$category -> title.' success');
+    }
+
+    public function delete($id){
+        $delete = AdminSlide::find($id);
+        $delete->delete();
+        return redirect('/admin/slide/')-> with('success', 'Delete '.$delete -> title.' success');
     }
 }

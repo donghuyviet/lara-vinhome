@@ -42,6 +42,12 @@
                             </div>                            
                         </div>
                         <div class="form-group">
+                            <label for="" class="col-sm-3 control-label">Position</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="idtitle" placeholder="position display category" name="position" value="{{$edit->position}}">
+                            </div>                            
+                        </div>
+                        <div class="form-group">
                             <label for="" class="col-sm-3 control-label">Status</label>
                             <div class="col-sm-8">
                                 <label>

@@ -48,6 +48,12 @@
                             </div>                            
                         </div>
                         <div class="form-group">
+                            <label for="" class="col-sm-3 control-label">Url</label>
+                            <div class="col-sm-8">
+                                <input class="form-control " name="url" id="editor1" ></input>
+                            </div>                            
+                        </div>
+                        <div class="form-group">
                             <label for="" class="col-sm-3 control-label">Status</label>
                             <div class="col-sm-8">
                                 <label>

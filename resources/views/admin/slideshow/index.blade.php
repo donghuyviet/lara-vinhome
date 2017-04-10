@@ -38,6 +38,7 @@
                             <th>Title</th>
                             <th>Description</th>
                             <th>images</th>
+                            <th>Link</th>
                             <th>status</th>
                             <th>Create date</th>
                             <th>Update date</th>
@@ -49,6 +50,7 @@
                             <td>{{str_limit($sli->title, 100)}}</td>
                             <td>{{$sli->description}}</td>
                             <td><img src="/uploads/admin/slide/{{$sli->images}}" width="80px;" height="80px;"></td>
+                            <td>{{$sli->url}}</td>
                             <td>@if($sli->title_cate == 0) 
                                 Hiện
                                 @else
