@@ -67,7 +67,7 @@ Route::group( ['middleware' => 'auth' ], function()
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'AdminController@index');
 
 // admin
 Route::group(['prefix' => 'admin'], function () {
@@ -103,6 +103,12 @@ Route::group(['prefix' => 'admin'], function () {
             });
         });
 });
+
+// fontend
+    Route::get('trang-chu','HomeController@home');
+
+
+
 Route::get('/api/keyword','ApiSearchController@index');
 Route::get('/api/search','ApiSearchController@get_job_in_keyrord');
 

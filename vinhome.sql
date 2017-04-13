@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 09, 2017 at 04:56 PM
+-- Generation Time: Apr 13, 2017 at 03:22 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -45,12 +45,12 @@ CREATE TABLE `articel` (
 --
 
 INSERT INTO `articel` (`id`, `title`, `slug`, `images`, `description`, `remember_token`, `created_at`, `updated_at`, `status`, `desc`, `cate_id`) VALUES
-(23, 'chùa hương', 'chua-huong', 'fiQn_20170402_095846.jpg', '<p>sadfa</p>\r\n', NULL, '2017-04-08 06:06:44', '2017-04-09 06:32:51', '0', '<p>sdfasdf</p>\r\n', '1'),
+(23, 'chùa hương đi chơi', 'chua-huong', '2LrJ_20170402_095822.jpg', '<p>ở đ&acirc;y rồi</p>\r\n\r\n<p><img alt="HAGL da khong giu duoc loi hua cua bau Duc hinh anh 1" src="http://znews-photo.d.za.zdn.vn/w660/Uploaded/OFH_ftqftma2/2017_04_10/Hoang_Anh_Gia_Lai_Thanh_Hoa.jpg" /></p>\r\n', NULL, '2017-04-08 06:06:44', '2017-04-09 20:20:37', '0', '<p>c&oacute; anh</p>\r\n\r\n<h1>HAGL đ&atilde; kh&ocirc;ng giữ được lời hứa của bầu Đức</h1>\r\n', '1'),
 (26, 'chùa hương part1', 'chua-huong-part1', 'i75V_20170402_095850.jpg', '<p>&aacute;dfasd</p>\r\n', NULL, '2017-04-08 06:13:14', '2017-04-09 06:33:14', '0', '<p>dsfasdf</p>\r\n', '1'),
 (27, 'chém gió', 'chemgios', 'puq7_20170402_095825.jpg', '<p>&aacute;dfadsf</p>\r\n', NULL, '2017-04-08 06:40:43', '2017-04-09 06:33:25', '0', '<p>sdfasdf</p>\r\n', '1'),
 (28, 'xu thối', 'xu-thoi', 'US3P_QuangLeresize.jpg', '<p>đi thăm lăng b&aacute;c</p>\r\n', NULL, '2017-04-09 06:29:10', '2017-04-09 06:32:10', '0', '<p>đi thăm lăng b&aacute;c</p>\r\n', '1'),
 (31, 'về quê 30/4', 've-que', 'kQyv_20170402_095648.jpg', '<p>&aacute;dfasdf</p>\r\n', NULL, '2017-04-09 07:11:35', '2017-04-09 07:11:35', '0', '<p>ấdfasdfasdfasdf</p>\r\n', '4'),
-(32, 'Sunderland vs Man Utd (0-2, H2): Mkhitaryan tỏa sáng', 'sunderland-vs-man-utd-0-2-h2-mkhitaryan-toa-sang', 'Fhtg_QuangLe-bolero.png', '<h1>Sunderland vs Man Utd (0-2, H2): Mkhitaryan tỏa s&aacute;ng</h1>\r\n', NULL, '2017-04-09 07:12:49', '2017-04-09 07:12:49', '0', '<p>dsfasdfaSunderland vs Man Utd (0-2, H2): Mkhitaryan tỏa s&aacute;ng</p>\r\n', '1');
+(32, 'Sunderland vs Man Utd (0-2, H2): Mkhitaryan tỏa sáng', 'sunderland-vs-man-utd-0-2-h2-mkhitaryan-toa-sang', 'f6rW_20170402_095825.jpg', '<h1>Sunderland vs Man Utd (0-2, H2): Mkhitaryan tỏa s&aacute;ng</h1>\r\n', NULL, '2017-04-09 07:12:49', '2017-04-09 20:15:26', '0', '<p>dsfasdfaSunderland vs Man Utd (0-2, H2): Mkhitaryan tỏa s&aacute;ng</p>\r\n', '1');
 
 -- --------------------------------------------------------
 
@@ -63,6 +63,7 @@ CREATE TABLE `category` (
   `title_cate` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `slug` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `status` int(10) NOT NULL,
+  `position` int(20) NOT NULL,
   `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -72,15 +73,15 @@ CREATE TABLE `category` (
 -- Dumping data for table `category`
 --
 
-INSERT INTO `category` (`id`, `title_cate`, `slug`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'tin tức', 'tin-tuc', 0, NULL, '2017-03-12 07:37:43', '2017-03-12 07:37:43'),
-(4, 'giới thiệu', 'gioi-thieu', 0, NULL, '2017-03-12 08:20:22', '2017-03-12 08:20:22'),
-(5, 'Căn Hộ', 'can-ho', 0, NULL, '2017-03-13 02:14:49', '2017-04-04 00:36:43'),
-(6, 'trang chủ', 'trang-chu', 0, NULL, '2017-03-13 02:15:02', '2017-04-04 00:26:49'),
-(7, 'Vị Trí', 'vi-tri', 0, NULL, '2017-04-04 00:26:34', '2017-04-04 00:26:34'),
-(8, 'Tiện Ích', 'tien-ich', 0, NULL, '2017-04-04 00:37:02', '2017-04-04 00:37:02'),
-(9, 'Đối Tác', 'doi-tac', 1, NULL, '2017-04-04 00:37:16', '2017-04-09 07:52:56'),
-(10, 'chùa hương', 'chua-huong', 1, NULL, '2017-04-09 07:52:39', '2017-04-09 07:52:39');
+INSERT INTO `category` (`id`, `title_cate`, `slug`, `status`, `position`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'tin tức', 'tin-tuc', 0, 2, NULL, '2017-03-12 07:37:43', '2017-04-09 21:07:42'),
+(4, 'giới thiệu', 'gioi-thieu', 0, 3, NULL, '2017-03-12 08:20:22', '2017-04-09 21:07:52'),
+(5, 'Căn Hộ', 'can-ho', 0, 1, NULL, '2017-03-13 02:14:49', '2017-04-09 21:07:35'),
+(6, 'trang chủ', 'trang-chu', 0, 0, NULL, '2017-03-13 02:15:02', '2017-04-04 00:26:49'),
+(7, 'Vị Trí', 'vi-tri', 0, 4, NULL, '2017-04-04 00:26:34', '2017-04-09 21:07:59'),
+(8, 'Tiện Ích', 'tien-ich', 0, 5, NULL, '2017-04-04 00:37:02', '2017-04-09 21:08:06'),
+(9, 'Đối Tác', 'doi-tac', 0, 6, NULL, '2017-04-04 00:37:16', '2017-04-09 21:08:12'),
+(10, 'chùa hương', 'chua-huong', 0, 7, NULL, '2017-04-09 07:52:39', '2017-04-09 21:08:18');
 
 -- --------------------------------------------------------
 
@@ -161,6 +162,7 @@ CREATE TABLE `slide` (
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `images` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `status` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -171,10 +173,10 @@ CREATE TABLE `slide` (
 -- Dumping data for table `slide`
 --
 
-INSERT INTO `slide` (`id`, `title`, `description`, `images`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
-(6, 'chùa hương', 'demo', 'WXGQ_20170306_220816.jpg', '0', NULL, '2017-04-08 06:03:32', '2017-04-08 08:55:10'),
-(7, 'hoa anh dao', 'hoa anh dao', 'OYc1_20170402_123335.jpg', '0', NULL, '2017-04-09 06:39:23', '2017-04-09 06:42:34'),
-(8, 'người tình bên bến sông hương', 'người tính', 'oF4m_QuangLe-bolero.png', '0', NULL, '2017-04-09 07:14:00', '2017-04-09 07:14:00');
+INSERT INTO `slide` (`id`, `title`, `description`, `images`, `url`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
+(6, 'chùa hương', 'demosss', 'WXGQ_20170306_220816.jpg', 'http://news.zing.vn/', '0', NULL, '2017-04-08 06:03:32', '2017-04-09 21:35:45'),
+(7, 'hoa anh dao', 'hoa anh dao', 'OYc1_20170402_123335.jpg', 'http://news.zing.vn/', '0', NULL, '2017-04-09 06:39:23', '2017-04-09 21:35:52'),
+(8, 'người tình bên bến sông hương', 'người tính', 'oF4m_QuangLe-bolero.png', '', '0', NULL, '2017-04-09 07:14:00', '2017-04-09 07:14:00');
 
 -- --------------------------------------------------------
 
@@ -187,6 +189,9 @@ CREATE TABLE `users` (
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `tel` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `address` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `images` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -196,9 +201,9 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'donghuyviet', 'donghuyviet@gmail.com', '$2y$10$ZdEIp0Yf62bX2aBrKA4DCOp.wRZ3hw.CEP2yqmZspPKdY/v0polJi', '5FeX1NIra8zk90KCvkeIV5PogX7sciNDIdseAGq0jvcrl3Vk5cV0TWCmLn4s', '2017-01-11 00:44:52', '2017-04-03 09:06:28'),
-(2, 'vietdong', 'vietdong@gmail.com', '$2y$10$i/O7Ro9gEkTbK8dR/q5K8.cbQzyGhRkTpHa//p74VCgA.TQEXT68W', NULL, '2017-04-07 19:03:39', '2017-04-07 19:03:39');
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `tel`, `address`, `images`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'donghuyviet', 'donghuyviet@gmail.com', '$2y$10$ZdEIp0Yf62bX2aBrKA4DCOp.wRZ3hw.CEP2yqmZspPKdY/v0polJi', '', '', '', 'Db97nIAbktYwMZDTMGr6NBvANlDrfXEPZDi7hjdNBtZF6ztOSnFoVk6QWl23', '2017-01-11 00:44:52', '2017-04-10 07:31:06'),
+(2, 'vietdong', 'vietdong@gmail.com', '$2y$10$i/O7Ro9gEkTbK8dR/q5K8.cbQzyGhRkTpHa//p74VCgA.TQEXT68W', '', '', '', NULL, '2017-04-07 19:03:39', '2017-04-07 19:03:39');
 
 --
 -- Indexes for dumped tables

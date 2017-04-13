@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="iFrame">
 <head>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,30 +13,14 @@
     <!-- Styles -->
     <link href="/{{ config('app.source') }}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/{{ config('app.source') }}/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/{{ config('app.source') }}/css/pace.css" rel="stylesheet">
-    <link href="/{{ config('app.source') }}/css/jquery-toast.css" rel="stylesheet">
-    <link href="/{{ config('app.source') }}/css/jquery-confirm.css" rel="stylesheet">
-    {{--<link href="/{{ config('app.source') }}/css/main.css" rel="stylesheet">--}}
-    <link href="/{{ config('app.source') }}/fullcalendar/fullcalendar.min.css" rel="stylesheet">
-
     <!-- Scripts -->
 
     <script src="/{{ config('app.source') }}/js/jquery-3.1.1.min.js"></script>
     <script src="/{{ config('app.source') }}/js/jquery-ui.min.js"></script>
-    <script src="/{{ config('app.source') }}/js/angular.min.js"></script>
     <script src="/{{ config('app.source') }}/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/{{ config('app.source') }}/js/pace.min.js"></script>
     <script src="/{{ config('app.source') }}/js/jquery-toast.js"></script>
     <script src="/{{ config('app.source') }}/js/jquery.validate.min.js"></script>
     <script src="/{{ config('app.source') }}/js/jquery-confirm.js"></script>
-    <script src="/{{ config('app.source') }}/js/angular-dragdrop.min.js"></script>
-    <script src="/{{ config('app.source') }}/fullcalendar/lib/moment.min.js"></script>
-    <script src="/{{ config('app.source') }}/fullcalendar/fullcalendar.min.js"></script>
-
-
-    <script src="/{{ config('app.source') }}/js/main.js"></script>
-    <script src="/{{ config('app.source') }}/js/ajax.js"></script>
-    <script src="/{{ config('app.source') }}/js/customize/notifications.js"></script>
 
     <script>
 
@@ -56,7 +40,9 @@
 
 </head>
 <body >
-<div class="container" >
+<div class="container vdh" >
+    @include('frontend.sidebar.menu')
+    @include('frontend.slide.index')
     @yield('content')
 </div>
 @yield('script')

@@ -12,6 +12,7 @@ class AdminCategory extends Model
         'id',
         'title_cate',
         'slug',
-        'status'
+        'status',
+        'position'
     ];
 }
