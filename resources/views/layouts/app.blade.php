@@ -32,10 +32,9 @@
     <script src="/{{ config('app.source') }}/js/jquery.validate.min.js"></script>
     <script src="/{{ config('app.source') }}/js/jquery-confirm.js"></script>
     <script src="/{{ config('app.source') }}/js/angular-dragdrop.min.js"></script>
-    <script src="/{{ config('app.source') }}/fullcalendar/lib/moment.min.js"></script>
-    <script src="/{{ config('app.source') }}/fullcalendar/fullcalendar.min.js"></script>
     <script src="/{{ config('app.source') }}/js/angular-validate.min.js"></script>
     <script src="/{{ config('app.source') }}/js/angular-sanitize.js"></script>
+    <script src="/{{ config('app.source') }}/admin/js/common.js"></script>
 
 
 
@@ -44,7 +43,7 @@
     <!-- <script src="/{{ config('app.source') }}/js/customize/notifications.js"></script> -->
     <!-- <script src="/{{ config('app.source') }}/js/socket.io.js"></script> -->
     <script src="/{{ config('app.source') }}/js/bootstrap-datepicker.min.js"></script>
-    <script src="/{{ config('app.source') }}/admin/ckeditor/ckeditor.js"></script>
+    <script src="/{{ config('app.source') }}/admin/plugin/ckeditor/ckeditor.js"></script>
 
     <script>
 

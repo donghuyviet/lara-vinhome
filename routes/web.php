@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@home');
 Route::get('/lang/{lang}', 'LanguageController@index');
 
 Route::group( ['middleware' => 'auth' ], function()
@@ -73,9 +71,8 @@ Route::get('/home', 'AdminController@index');
 Route::group(['prefix' => 'admin'], function () {
     Route::group( ['middleware' => 'auth' ], function()
         {
-            Route::get('/', function ()    {
-                return "echo abc";
-            });
+            Route::get('/', 'AdminPagesController@index'); // redirect pagescontroller
+
             Route::group(['prefix'=>'articels'], function(){
                 Route::get('/','AdminArticelController@index');
                 Route::get('/add','AdminArticelController@add');
@@ -101,24 +98,70 @@ Route::group(['prefix' => 'admin'], function () {
                 Route::post('/edit/{id}','AdminSlideController@update');
                 Route::get('/delete/{id}','AdminSlideController@delete');
             });
+            Route::group(['prefix'=>'pages'], function(){
+                Route::get('/','AdminPagesController@index');
+                Route::get('/add','AdminPagesController@add');
+                Route::post('/store','AdminPagesController@store');
+                Route::get('/edit/{id}','AdminPagesController@edit');
+                Route::post('/edit/{id}','AdminPagesController@update');
+                Route::get('/delete/{id}','AdminPagesController@delete');
+            });
+            Route::group(['prefix'=>'members'], function(){
+                Route::get('/','AdminMemberController@index');
+                Route::get('/add','AdminMemberController@add');
+                Route::post('/store','AdminMemberController@store');
+                Route::get('/edit/{id}','AdminMemberController@edit');
+                Route::post('/edit/{id}','AdminMemberController@update');
+                Route::get('/delete/{id}','AdminMemberController@delete');
+            });
+            Route::group(['prefix'=>'customers'], function(){
+                Route::get('/','AdminCustomerController@index');
+                Route::get('/date','AdminCustomerController@date');
+                Route::get('/month','AdminCustomerController@month');
+            });
         });
 });
 
+
 // fontend
-    Route::get('trang-chu','HomeController@home');
+Route::get('trang-chu.html','HomeController@home');
+Route::get('lien-he.html','HomeController@contact');
+Route::post('/store','HomeController@get_mail');
+// submit form resgiter
+Route::get('cam-on.html','HomeController@thanks');
+// download file
+Route::get('/download/{file}', 'HomeController@download');
+
+// Category url
+// Route::get('category/{id}/{slug}','HomeController@category');
+Route::get('danh-muc/{slug}.html','HomeController@category');
+
+// danh mục dự án
+Route::get('danh-muc.html','CategoryController@index');
+
+Route::get('tin-tuc.html','NewsController@index');
+Route::get('tin-tuc/{id}/{slug}.html','NewsController@detail');
 
 
+
+
+
+
+
+
+// redirect trang chủ khi sai url
+Route::any('{all?}','HomeController@home')->where('all','(.*)');
 
 Route::get('/api/keyword','ApiSearchController@index');
 Route::get('/api/search','ApiSearchController@get_job_in_keyrord');
 
 Route::get('/tables', function(){
-    Schema::create('slide', function ($table) {
+    Schema::create('customer', function ($table) {
             $table->increments('id');
-            $table->string('title');
             $table->string('name');
-            $table->string('images');
-            $table->string('status');
+            $table->string('email');
+            $table->string('phone');
+            $table->string('address');
             $table->rememberToken();
             $table->timestamps();
         });

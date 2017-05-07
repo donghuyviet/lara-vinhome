@@ -44,9 +44,11 @@
                             <th>Update date</th>
                             <th></th>
                         </tr>
+                        <?php $stt=0;?>
                         @foreach($slide as $sli)
+                        <?php $stt++?>
                         <tr>
-                            <td>{{$sli->id}}</td>
+                            <td>{{$stt}}</td>
                             <td>{{str_limit($sli->title, 100)}}</td>
                             <td>{{$sli->description}}</td>
                             <td><img src="/uploads/admin/slide/{{$sli->images}}" width="80px;" height="80px;"></td>
@@ -61,7 +63,7 @@
                             <td>{{$sli->updated_at}}</td>
                             <td>
                                 <a class="btn btn-default" href="/admin/slide/edit/{{$sli->id}}" > <i class="glyphicon glyphicon-pencil"></i></a>
-                                <a class="btn btn-danger" href="/admin/slide/delete/{{$sli->id}}" onclick="confirm()"><i class="glyphicon glyphicon-trash"></i></a>
+                                <a class="btn btn-danger" href="/admin/slide/delete/{{$sli->id}}" onclick="return confirm_delete('are you sure delete')"> <i class="glyphicon glyphicon-trash"></i></a>
                             </td>
                         </tr>
                         @endforeach
@@ -79,24 +81,6 @@
         </div>
         <div class="clearfix"></div>
     </div>
-    <script>
-        function confirm(){
-
-            $.confirm({
-                title: 'Confirm!',
-                content: 'Are you sure',
-                buttons: {
-                    confirm: function () {
-                        $.alert('Confirmed!');
-                    },
-                    cancel: function () {
-                        $.alert('Canceled!');
-                    }
-
-                }
-            });
-        }
-    </script>
 @endsection
 
 

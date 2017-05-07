@@ -36,6 +36,7 @@
                         <tr>
                             <th>#</th>
                             <th>Title</th>
+                            <th>parent</th>
                             <th>Slug</th>
                             <th>status</th>
                             <th>Position</th>
@@ -43,10 +44,22 @@
                             <th>Update date</th>
                             <th></th>
                         </tr>
+                        <?php $stt = 0;?>
                         @foreach($category as $cate)
+                        <?php $stt++ ?>
                         <tr>
-                            <td>{{$cate->id}}</td>
+                            <td>{{$stt}}</td>
                             <td>{{$cate->title_cate}}</td>
+                            <td>
+                                @if($cate["parent_id"]==0)
+                                    {{"None"}}
+                                @else
+                                    <?php
+                                        $parent = DB::table('category')->where('id',$cate['parent_id'])->first();
+                                        echo $parent->title_cate;
+                                    ?>
+                                @endif
+                            </td>
                             <td>{{$cate->slug}}</td>
                             <td>@if($cate->status == 0) 
                                 Hiện
@@ -59,7 +72,7 @@
                             <td>{{$cate->updated_at}}</td>
                             <td>
                                 <a class="btn btn-default" href="/admin/category/edit/{{$cate->id}}" >Edit</a>
-                                <a class="btn btn-danger" href="/admin/category/delete/{{$cate->id}}" onclick="confirm()">Del</a>
+                                <a class="btn btn-danger" onclick="return confirm_delete('are you sure delete')" href="/admin/category/delete/{{$cate->id}}" onclick="confirm()">Del</a>
                             </td>
                         </tr>
                         @endforeach
@@ -79,24 +92,6 @@
         <div class="clearfix"></div>
     </div>
     </div> 
-    <script>
-        function confirm(){
-
-            $.confirm({
-                title: 'Confirm!',
-                content: 'Are you sure',
-                buttons: {
-                    confirm: function () {
-                        $.alert('Confirmed!');
-                    },
-                    cancel: function () {
-                        $.alert('Canceled!');
-                    }
-
-                }
-            });
-        }
-    </script>
 @endsection
 
 

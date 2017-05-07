@@ -11,24 +11,31 @@
     <title><?php if( isset($title)  ) { echo $title; } else { echo  config('app.name', 'Partout'); } ?></title>
 
     <!-- Styles -->
-    <link href="/{{ config('app.source') }}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/{{ config('app.source') }}/frontend/assets/css/style.css" rel="stylesheet">
+    <link href="/{{ config('app.source') }}/frontend/assets/css/responsive.css" rel="stylesheet">
+    <link href="/{{ config('app.source') }}/frontend/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/{{ config('app.source') }}/frontend/assets/css/animations.css" rel="stylesheet">
     <link href="/{{ config('app.source') }}/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- Scripts -->
 
-    <script src="/{{ config('app.source') }}/js/jquery-3.1.1.min.js"></script>
-    <script src="/{{ config('app.source') }}/js/jquery-ui.min.js"></script>
-    <script src="/{{ config('app.source') }}/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/{{ config('app.source') }}/js/jquery-toast.js"></script>
-    <script src="/{{ config('app.source') }}/js/jquery.validate.min.js"></script>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-precomposed.png">
+    <link rel="icon" href="/{{ config('app.source') }}/frontend/assets/ico/home.ico">
+    <!-- Javascript -->
+    <script src="/{{ config('app.source') }}/frontend/assets/js/jquery.min.js"></script>
+    <script src="/{{ config('app.source') }}/frontend/assets/js/bootstrap.min.js"></script>
+    <!-- <script src="docs/assets/js/holder.min.js"></script> -->
+    <script src="/{{ config('app.source') }}/frontend/assets/js/custom.js"></script>
+    <script src="/{{ config('app.source') }}/frontend/assets/js/css3-animate-it.js"></script>
+    <script src="/{{ config('app.source') }}/frontend/assets/js/common.js"></script>
     <script src="/{{ config('app.source') }}/js/jquery-confirm.js"></script>
 
     <script>
 
-        var _app = angular.module('iFrame', []);
-        _app.config(function($interpolateProvider) {
-            $interpolateProvider.startSymbol('//');
-            $interpolateProvider.endSymbol('//');
-        })
+        // var _app = angular.module('iFrame', []);
+        // _app.config(function($interpolateProvider) {
+        //     $interpolateProvider.startSymbol('//');
+        //     $interpolateProvider.endSymbol('//');
+        // });
 
         window.Laravel = '<?php echo json_encode([
                 'csrfToken' => csrf_token(),
@@ -39,11 +46,15 @@
     @yield('style')
 
 </head>
-<body >
-<div class="container vdh" >
-    @include('frontend.sidebar.menu')
-    @include('frontend.slide.index')
-    @yield('content')
+<body class="body_page">
+<div class="wrapper dhv">
+    @include('frontend.home.menu')
+    <div class="clearfix"></div>
+    <div class="full-page">
+        <!-- content -->
+        @yield('content')
+    </div>
+    @include('frontend.home.footer')
 </div>
 @yield('script')
 </body>

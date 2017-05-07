@@ -17,20 +17,7 @@
                 </div>
                 <div class="box-content">
                     <h2>Manager Category</h2>
-                    @if(count($errors)>0)
-                        <div class="alert alert-danger alert-dismissible" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            @foreach($errors->all() as $err)
-                                {{$err}} </br>
-                            @endforeach
-                        </div>
-                    @endif
-                    @if(Session('success'))
-                        <div class="alert alert-success alert-dismissible" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            {{session('success')}}
-                        </div>
-                    @endif
+                    @include('errors.error')
                     <div class="table-responsive">
                         <table class="table table-bordered table-hover">
                         <tr>
@@ -41,19 +28,21 @@
                             <th>Desc</th>
                             <th>Description</th>
                             <th>Cate</th>
-                            <th>satus</th>
+                            <th>Satus</th>
                             <th>Create date</th>
                             <th>Update date</th>
                             <th></th>
                         </tr>
+                        <?php $stt =0; ?>
                         @foreach($articel as $art)
+                        <?php $stt++ ?>
                         <tr>
-                            <td>{{$art->id}}</td>
-                            <td>{{str_limit($art->title, 100)}}</td>
+                            <td>{{$stt}}</td>
+                            <td>{{str_limit($art->title, 60)}}</td>
                             <td>{{$art->slug}}</td>
                             <td> <img src="/uploads/admin/articels/{{$art->images}}" width="80px" height="80px"></td>
-                            <td>{{str_limit($art->desc, 100)}}</td>
-                            <td>{{str_limit($art->description, 100)}}</td>
+                            <td>{{str_limit($art->desc, 80)}}</td>
+                            <td>{{str_limit($art->description, 80)}}</td>
                             <td>{{$art->title_cate}}</td>
                             <td>@if($art->status == 0) 
                                 Hiện
@@ -65,7 +54,7 @@
                             <td>{{$art->updated_at}}</td>
                             <td>
                                 <a class="btn btn-default" href="/admin/articels/edit/{{$art->id}}" > <i class="glyphicon glyphicon-pencil"></i></a>
-                                <a class="btn btn-danger" href="/admin/articels/delete/{{$art->id}}" onclick="confirm()"><i class="glyphicon glyphicon-trash"></i></a>
+                                <a class="btn btn-danger" href="/admin/articels/delete/{{$art->id}}" onclick="return confirm_delete('are you sure delete')"><i class="glyphicon glyphicon-trash"></i></a>
                             </td>
                         </tr>
                         @endforeach
@@ -83,24 +72,6 @@
         </div>
         <div class="clearfix"></div>
     </div>
-    <script>
-        function confirm(){
-
-            $.confirm({
-                title: 'Confirm!',
-                content: 'Are you sure',
-                buttons: {
-                    confirm: function () {
-                        $.alert('Confirmed!');
-                    },
-                    cancel: function () {
-                        $.alert('Canceled!');
-                    }
-
-                }
-            });
-        }
-    </script>
 @endsection
 
 

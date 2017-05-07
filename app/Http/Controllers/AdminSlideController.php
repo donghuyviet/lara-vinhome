@@ -9,7 +9,7 @@ class AdminSlideController extends Controller
 {
     //
     public function index(){
-    	$slide = AdminSlide::paginate(10);;
+    	$slide = AdminSlide::paginate(10);
     	return view('admin.slideshow.index', ['slide'=>$slide]);
     }
 
@@ -20,10 +20,12 @@ class AdminSlideController extends Controller
      public function store(Request $request){
     	$this->validate($request,
             [
-                'title'=>'required|min:3|max:100'
+                'title'=>'required|min:3|max:100',
+                'url'=>'required'
             ],
             [
                 'title.required'=>'bạn chưa nhập title',
+                'url.required'=>'bạn chưa nhập link',
                 'title.min'=>'tên thể loại phải có độ dài từ 3 ký tự trở lên',
                 'title.max'=>'tên thể loại phải có độ dài quá 100 ký tự',
             ]
@@ -66,10 +68,12 @@ class AdminSlideController extends Controller
         $category = AdminSlide::find($id);
         $this->validate($request,
             [
-                'title'=>'required|min:3|max:100'
+                'title'=>'required|min:3|max:100',
+                'url'=>'required'
             ],
             [
                 'title.required'=>'bạn chưa nhập title',
+                'url.required'=>'bạn chưa nhập link',
                 'title.min'=>'tên thể loại phải có độ dài từ 3 ký tự trở lên',
                 'title.max'=>'tên thể loại phải có độ dài quá 100 ký tự',
             ]

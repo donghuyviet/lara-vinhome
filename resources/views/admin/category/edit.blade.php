@@ -13,38 +13,34 @@
             <div class="">
                 <div class="box-content">
                     <div class="text-center"><h2>Edit category " {{$edit->title_cate}} "</h2></div>
-                    @if(count($errors)>0)
-                        <div class="alert alert-danger alert-dismissible" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            @foreach($errors->all() as $err)
-                                {{$err}} </br>
-                            @endforeach
-                        </div>
-                    @endif
-                    @if(Session('success'))
-                        <div class="alert alert-success alert-dismissible" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            {{session('success')}}
-                        </div>
-                    @endif
+                    @include('errors.error')
                     <form class="form-horizontal" method="POST" action="{{ url('/') }}/admin/category/edit/{{$edit->id}}" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                         <div class="form-group">
                             <label for="" class="col-sm-3 control-label">Title</label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="idtitle" placeholder="Tiêu đề bài biết" name="title_cate" value="{{$edit->title_cate}}">
+                                <input type="text" class="form-control" id="idtitle" placeholder="Tiêu đề bài biết" name="title_cate" value="{{ old('title_cate', isset($edit) ? $edit['title_cate']: null) }}">
+                            </div>                            
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-3 control-label">Category parent</label>
+                            <div class="col-sm-6">
+                                <select class="form-control" name="stlParent">
+                                    <option value="0"> Please Choose Category</option>
+                                    <?php cate_parent($parent, 0, "--",$edit["parent_id"]); ?>
+                                </select>
                             </div>                            
                         </div>
                         <div class="form-group">
                             <label for="" class="col-sm-3 control-label">Slug</label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="idtitle" placeholder="Slug: slug-bai-viet" name="slug" value="{{$edit->slug}}">
+                                <input type="text" class="form-control" id="idtitle" placeholder="Slug: slug-bai-viet" name="slug" value="{{ old('slug', isset($edit) ? $edit['slug']: null) }}">
                             </div>                            
                         </div>
                         <div class="form-group">
                             <label for="" class="col-sm-3 control-label">Position</label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="idtitle" placeholder="position display category" name="position" value="{{$edit->position}}">
+                                <input type="text" class="form-control" id="idtitle" placeholder="position display category" name="position" value="{{ old('position', isset($edit) ? $edit['position']: null) }}">
                             </div>                            
                         </div>
                         <div class="form-group">
@@ -63,7 +59,7 @@
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
                                 <button type="submit" class="btn btn-primary">Save</button>
-                                <button type="submit" class="btn btn-default">cancel</button>
+                                <button type="cancel" class="btn btn-default" >cancel</button>
                             </div>
                         </div>
                     </form>

@@ -29,28 +29,41 @@
                       <li><a href="/trang-chu" target="_blank">View Website</a></li>
                     </ul>
                   </li>
+                  <li><a><i class="fa fa-edit"></i> Pages <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="/admin/pages/add">Add New</a></li>
+                      <li><a href="/admin/pages">All Pages</a></li>
+                    </ul>
+                  </li>
                   <li><a><i class="fa fa-edit"></i> Category <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="/admin/category/add">Add category</a></li>
-                      <li><a href="/admin/category">List Cate</a></li>
+                      <li><a href="/admin/category/add">Add New</a></li>
+                      <li><a href="/admin/category">All Category</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-desktop"></i> Articels <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="/admin/articels/add">Add Articels</a></li>
-                      <li><a href="/admin/articels">List Articels</a></li>
+                      <li><a href="/admin/articels/add">Add New</a></li>
+                      <li><a href="/admin/articels">All Articels</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-desktop"></i> Customers <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="/admin/customers">All Customers</a></li>
+                      <li><a href="/admin/customers/date">Statics Date</a></li>
+                      <li><a href="/admin/customers/month">Statics Month</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-desktop"></i> Galary <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="/admin/slide/add">Add slide</a></li>
-                      <li><a href="/admin/slide">List slide</a></li>
+                      <li><a href="/admin/slide/add">Add New</a></li>
+                      <li><a href="/admin/slide">All slide</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-table"></i> Tables <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-desktop"></i> Members <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="tables.html">Tables</a></li>
-                      <li><a href="tables_dynamic.html">Table Dynamic</a></li>
+                      <li><a href="/admin/members/add">Add New</a></li>
+                      <li><a href="/admin/members">All members</a></li>
                     </ul>
                   </li>
                 </ul>

@@ -19,7 +19,7 @@ class AdminArticelController extends Controller
     	return view('/admin/articels/index',['articel'=>$articel]);
     }
     public function add(){
-    	$cate = AdminCategory::all();
+    	$cate = AdminCategory::select('title_cate','id', 'parent_id')->get()->toArray();
     	return view('/admin/articels/add', ['cate'=>$cate]);
     }
 
@@ -29,7 +29,6 @@ class AdminArticelController extends Controller
                 'title'=>'required|unique:articel',
                 'slug'=>'required',
                 'description'=>'required',
-                'desc'=>'required'
             ],
             [
                 'title.required'=>'bạn chưa nhập title',
@@ -60,17 +59,17 @@ class AdminArticelController extends Controller
             }else{
                 $AdminArticel->images= "";
             }
-            $AdminArticel->description = $request->description;
             $AdminArticel->desc = $request->desc;
+            $AdminArticel->description = $request->description;
             $AdminArticel->status = $request->status;
-            $AdminArticel->cate_id = $request->AdminCategory;
+            $AdminArticel->cate_id = $request->stlParent;
 
             $AdminArticel->save();
             return redirect('/admin/articels')-> with('success', 'add '.$AdminArticel -> title.' success');
     }
     public function edit($id){
     	$edit = AdminArticel::find($id);
-    	$cate = AdminCategory::all();
+    	$cate = AdminCategory::select('title_cate','id', 'parent_id')->get()->toArray();
     	return view('admin/articels/edit', ['edit'=>$edit, 'cate'=>$cate]);
     }
     public function update(Request $request,$id){
@@ -104,10 +103,10 @@ class AdminArticelController extends Controller
                 $file->move('uploads/admin/articels',$images);
                 $category->images = $images;
             }
-            $category->description = $request->description;
             $category->desc = $request->desc;
+            $category->description = $request->description;
             $category->status = $request->status;
-            $category->cate_id = $request->AdminCategory;
+            $category->cate_id = $request->stlParent;
 
             $category->save();
             return redirect('/admin/articels/')-> with('success', 'Edit '.$category -> title.' success');

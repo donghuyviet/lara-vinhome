@@ -13,70 +13,74 @@
             <div class="">
                 <div class="box-content">
                     <div class="text-center"><h2>add articles</h2></div>
-                    @if(count($errors)>0)
-                        <div class="alert alert-danger alert-dismissible" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            @foreach($errors->all() as $err)
-                                {{$err}} </br>
-                            @endforeach
-                        </div>
-                    @endif
-                    @if(Session('success'))
-                        <div class="alert alert-success alert-dismissible" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            {{session('success')}}
-                        </div>
-                    @endif
+                    @include('errors.error')
                     <form class="form-horizontal" method="POST" action="{{ url('/') }}/admin/articels/edit/{{$edit->id}}" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                         <div class="form-group">
-                            <label for="" class="col-sm-3 control-label">Title</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" id="idtitle" placeholder="Tiêu đề bài biết" name="title" value="{{$edit->title}}">
+                            <label for="" class="col-sm-2 control-label">Title</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="idtitle" placeholder="Tiêu đề bài biết" name="title" value="{{ old('title', isset($edit) ? $edit['title']: null) }}">
                             </div>                            
                         </div>
                         <div class="form-group">
-                            <label for="" class="col-sm-3 control-label">Slug</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" id="idtitle" placeholder="Slug: slug-bai-viet" name="slug" value="{{$edit->slug}}">
+                            <label for="" class="col-sm-2 control-label">Slug</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="idtitle" placeholder="Slug: slug-bai-viet" name="slug" value="{{ old('slug', isset($edit) ? $edit['slug']: null) }}">
                             </div>                            
                         </div>
                         <div class="form-group">
-                            <label for="" class="col-sm-3 control-label">Category</label>
-                            <div class="col-sm-8">
-                                <select class="form-control" name="AdminCategory" id="Theloai">
-                                    @foreach($cate as $tl)
-                                    <option 
-                                        @if($edit->AdminCategory == $tl->id)
-                                            {{"selected"}}
-                                        @endif
-                                        value="{{$tl->id}}">{{$tl->title_cate}}</option>
-                                    @endforeach
+                            <label for="" class="col-sm-2 control-label">Category</label>
+                            <div class="col-sm-6">
+                            <select class="form-control" name="stlParent">
+                                    <option value="0"> Please Choose Category</option>
+                                    <?php cate_parent($cate,0,"--",$edit["cate_id"]); ?>
                                 </select>
-                            </div>                            
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label for="" class="col-sm-3 control-label">Hình Ảnh</label>
+                            <label for="" class="col-sm-2 control-label">Hình Ảnh</label>
                             <div class="col-sm-6">
                                 <img src="/uploads/admin/articels/{{$edit->images}}" width="150px;">
-                                <input class="form-control " name="images" type="file" value="{{$edit->images}}" ></input>
+                                <input class="form-control " name="images" type="file" value="{{ old('images', isset($edit) ? $edit['images']: null) }}"></input>
                             </div>                            
                         </div>
                         <div class="form-group">
-                            <label for="" class="col-sm-3 control-label">Desc-meta</label>
-                            <div class="col-sm-8">
-                                <textarea class="form-control ckeditor" name="desc" value="" id="editor1" >{{$edit->desc}}</textarea>
+                            <label for="" class="col-sm-2 control-label">Desc</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control " value="" name="desc" >{{ old('desc', isset($edit) ? $edit['desc']: null) }}</textarea>
+                                <script type="text/javascript">
+                                    config = {};
+                                    config.entities_latin = false;
+                                    var editor = CKEDITOR.replace('desc',{
+                                        language:'en',
+                                        filebrowserImageBrowseUrl : '../../../src/admin/plugin/ckfinder/ckfinder.html?Type=Images',
+                                        filebrowserFlashBrowseUrl : '../../../src/admin/plugin/ckfinder/ckfinder.html?Type=Flash',
+                                        filebrowserImageUploadUrl : '../../../src/admin/plugin/ckfinder/core/connector/php/connector.php?command=QuickUpload&Type=Images',
+                                        filebrowserFlashUploadUrl : '../../../src/admin/plugin/ckfinder/core/connector/php/connector.php?command=QuickUpload&Type=Flash',
+                                    });
+                                </script>
                             </div>                            
                         </div>
                         <div class="form-group">
-                            <label for="" class="col-sm-3 control-label">Description</label>
-                            <div class="col-sm-8">
-                                <textarea class="form-control ckeditor" value="" name="description" id="editor1" >{{$edit->description}}</textarea>
+                            <label for="" class="col-sm-2 control-label">Description</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control " value="" name="description" >{{ old('description', isset($edit) ? $edit['description']: null) }}</textarea>
+                                <script type="text/javascript">
+                                    config = {};
+                                    config.entities_latin = false;
+                                    var editor = CKEDITOR.replace('description',{
+                                        language:'en',
+                                        filebrowserImageBrowseUrl : '../../../src/admin/plugin/ckfinder/ckfinder.html?Type=Images',
+                                        filebrowserFlashBrowseUrl : '../../../src/admin/plugin/ckfinder/ckfinder.html?Type=Flash',
+                                        filebrowserImageUploadUrl : '../../../src/admin/plugin/ckfinder/core/connector/php/connector.php?command=QuickUpload&Type=Images',
+                                        filebrowserFlashUploadUrl : '../../../src/admin/plugin/ckfinder/core/connector/php/connector.php?command=QuickUpload&Type=Flash',
+                                    });
+                                </script>
                             </div>                            
                         </div>
                         <div class="form-group">
-                            <label for="" class="col-sm-3 control-label">Status</label>
-                            <div class="col-sm-8">
+                            <label for="" class="col-sm-2 control-label">Status</label>
+                            <div class="col-sm-10">
                                 <label>
                                     <input type="radio" name="status" id="optionsRadios1" value="0" checked>
                                     Hiện
