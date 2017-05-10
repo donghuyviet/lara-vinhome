@@ -12,7 +12,6 @@
 				<div class="col-xs-12 col-sm-9 news">
 					@foreach ($pages as $pag)
 						<div class=" title home text-center">{{$pag->title}}</div>
-						<div class="desc"><p> {{$pag->desc}}</p></div>
 						<div class="content text-center">
 						<p>{!!$pag->description!!}</p>
 						</div>
@@ -26,52 +25,7 @@
 				</div>
 			</div>
 		</div>
-		<!-- video, 360 -->
-		<div class="section animatedParent animateOnce ">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6 text-center animatedParent" data-sequence='500'>
-							<div class="section-content text-center ">
-								<div class="name text-center">KHÁM PHÁ CENTROSA GARDEN
-									<div class="clearfix"></div>
-									<div class="line-bottom"></div>
-								</div>
-							</div>
-							<div class="item-bottom-bg">
-								<a href="#" data-toggle="modal" data-target="#videoModal" data-theVideo="http://www.youtube.com/embed/loFtozxZG0s">
-									<img src="/src/frontend/assets/images/img-video.jpg">
-								</a>
-							</div>
-							<!-- modal video -->
-							<div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModal" aria-hidden="true">
-						    <div class="modal-dialog">
-						        <div class="modal-content">
-						            <div class="modal-body">
-						                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						                <div>
-						                    <iframe width="100%" height="350" src=""></iframe>
-						                </div>
-						            </div>
-						        </div>
-						    </div>
-						</div>
-						</div>
-					<div class="col-md-6 text-center animatedParent" data-sequence='500'>
-							<div class="section-content text-center ">
-								<div class="name text-center">Trải nghiệm dự án 360°
-									<div class="clearfix"></div>
-									<div class="line-bottom"></div>
-								</div>
-							</div>
-							<div class="item-bottom-bg">
-								<a href="sample-tour/index.html" >
-									<img src="/src/frontend/assets/images/img-video.jpg">
-								</a>
-							</div>
-						</div>
-				</div>
-			</div>
-		</div>
+		
 		<!-- Tin tức, sự kiện -->
 		<!-- <div class="section animatedParent animateOnce ">
 			<div class="container-main">
@@ -165,7 +119,52 @@
 			</div>
 		</div>  -->
 		@include('frontend.news.relate')
-
+		<!-- video, 360 -->
+		<div class="section animatedParent animateOnce ">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 text-center animatedParent" data-sequence='500'>
+							<div class="section-content text-center ">
+								<div class="name text-center">KHÁM PHÁ CENTROSA GARDEN
+									<div class="clearfix"></div>
+									<div class="line-bottom"></div>
+								</div>
+							</div>
+							<div class="item-bottom-bg">
+								<a href="#" data-toggle="modal" data-target="#videoModal" data-theVideo="http://www.youtube.com/embed/loFtozxZG0s">
+									<img src="/src/frontend/assets/images/img-video.jpg">
+								</a>
+							</div>
+							<!-- modal video -->
+							<div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModal" aria-hidden="true">
+						    <div class="modal-dialog">
+						        <div class="modal-content">
+						            <div class="modal-body">
+						                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						                <div>
+						                    <iframe width="100%" height="350" src=""></iframe>
+						                </div>
+						            </div>
+						        </div>
+						    </div>
+						</div>
+						</div>
+					<div class="col-md-6 text-center animatedParent" data-sequence='500'>
+							<div class="section-content text-center ">
+								<div class="name text-center">Trải nghiệm dự án 360°
+									<div class="clearfix"></div>
+									<div class="line-bottom"></div>
+								</div>
+							</div>
+							<div class="item-bottom-bg">
+								<a href="sample-tour/index.html" >
+									<img src="/src/frontend/assets/images/img-video.jpg">
+								</a>
+							</div>
+						</div>
+				</div>
+			</div>
+		</div>
 		<!-- ưu thế nổi bật -->
 		<div class="section animatedParent animateOnce ">
 			<div class="container-main group-harmo">

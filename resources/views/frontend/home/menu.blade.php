@@ -16,9 +16,9 @@
 				<div class="collapse navbar-collapse navbar-ex1-collapse">
 					<ul class="nav navbar-nav ">
 						<li><a href="{{url('/')}}" class="active">Trang Chủ</a></li>
-						<?php $menu = DB::table('category')->where('parent_id',0)->orderBy('position','ASC')->get();?>
+						<?php $menu = DB::table('category')->where([['status', '=', '0'],['parent_id', '=', '0']])->orderBy('position','ASC')->get();?>
 						@foreach ($menu as $level_1)
-						<li><a href="{{URL('',[ $level_1->slug])}}.html" class="active">{{$level_1->title_cate}}</a>
+						<li><a href="{{URL( $level_1->slug)}}.html" class="active">{{$level_1->title_cate}}</a>
 							<!-- menu cấp 1 -->
 						</li>
 						@endforeach

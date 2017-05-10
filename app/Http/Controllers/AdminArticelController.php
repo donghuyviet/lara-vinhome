@@ -15,7 +15,6 @@ class AdminArticelController extends Controller
             ->join('category', 'articel.cate_id', '=', 'category.id')
             ->select('articel.*', 'category.title_cate')
             ->paginate(10);
-        $paginate = AdminArticel::paginate(2);
     	return view('/admin/articels/index',['articel'=>$articel]);
     }
     public function add(){

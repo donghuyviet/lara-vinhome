@@ -617,6 +617,67 @@
 .title.home {
     font:20px 'Roboto Regular';
 }
+.go-top {
+    display: none;
+    position: fixed;
+    bottom: 40px;
+    right: 1px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background: url(../images/icons.png);
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+    background-position: -177px -74px;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.go-top:hover {
+  opacity: 1;
+}
+/******* TIỆN ÍCH *********/
+.tien-ich .item a {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 10px;
+}
+.tien-ich .item a img{
+    display: block;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+}
+.tien-ich .item a:hover img{
+ -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
+.tien-ich .item .text {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    color: #ffffff;
+    font:15px 'Roboto Regular';
+    text-transform: uppercase;
+    left: 25%;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    border-bottom: 1px solid #ffffff;
+    padding-bottom: 5px;
+}
+.tien-ich .item:hover .text {
+    opacity: 0;
+    display: none;
+}
+#fancybox-title {
+    display: none !important;
+}
+.utility {
+    margin-bottom: 20px;
+}
 }
 
 @media only screen and (min-width: 480px) {
@@ -735,7 +796,9 @@
     margin-top: -5px;
     margin-left: -10px;
 }
-
+.utility {
+    margin-bottom: 20px;
+}
 }
 
 @media only screen and (min-width: 767px) {
@@ -895,6 +958,31 @@
 .modal-header {
     padding: 15px 10px 0 !important;
     border-bottom: 0px solid #e5e5e5 !important;
+}
+.go-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background: url(../images/icons.png);
+    background-repeat: no-repeat;
+    height: 60px;
+    width: 60px;
+    background-position: -189px 1px;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.go-top:hover {
+  opacity: 1;
+}
+.utility {
+    margin-bottom: 20px;
 }
 }
 
@@ -1100,6 +1188,28 @@
 }
 .animatedParent {
     padding-bottom: 50px;
+}
+.go-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background: url(../images/icons.png);
+    background-repeat: no-repeat;
+    height: 60px;
+    width: 60px;
+    background-position: -189px 1px;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.go-top:hover {
+  opacity: 1;
 }
 }
 
@@ -1734,5 +1844,69 @@ padding-left: 0;
 }
 .line-bottom.cam-on {
     margin-bottom: 10px;
+}
+.go-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background: url(../images/icons.png);
+    background-repeat: no-repeat;
+    height: 60px;
+    width: 60px;
+    background-position: -189px 1px;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.go-top:hover {
+  opacity: 1;
+}
+/******* TIỆN ÍCH *********/
+.tien-ich .item {
+    max-height: 220px;
+}
+.tien-ich .item a {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 10px;
+}
+.tien-ich .item a img{
+    display: block;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+}
+.tien-ich .item a:hover img{
+ -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
+.tien-ich .item .text {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    color: #ffffff;
+    font:15px 'Roboto Regular';
+    text-transform: uppercase;
+    left: 25%;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    border-bottom: 1px solid #ffffff;
+    padding-bottom: 5px;
+}
+.tien-ich .item:hover .text {
+    opacity: 0;
+    display: none;
+}
+#fancybox-title {
+    display: block !important;
+}
+.utility {
+    margin-bottom: 20px;
 }
 }

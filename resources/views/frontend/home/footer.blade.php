@@ -103,4 +103,21 @@
 		    </div>
 		  </div>
 	</div>
-	
+	<button onclick="topFunction()" id="myBtn" class="go-top" title="Go to top"></button>
+	<script type="text/javascript">
+		window.onscroll = function() {scrollFunction()};
+
+		function scrollFunction() {
+		    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+		        document.getElementById("myBtn").style.display = "block";
+		    } else {
+		        document.getElementById("myBtn").style.display = "none";
+		    }
+		}
+
+		// When the user clicks on the button, scroll to the top of the document
+		function topFunction() {
+		    document.body.scrollTop = 0;
+		    document.documentElement.scrollTop = 0;
+		}
+	</script>

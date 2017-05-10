@@ -10,6 +10,7 @@ use App\AdminPages;
 use App\AdminCategory;
 use App\AdminArticel;
 use App\Customer;
+use App\AdminUtility;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -22,10 +23,10 @@ class HomeController extends Controller
 		// $menu = DB::table('category')->orderBy('position','ASC')->where('status',0)->get();
         // view()->share('menu',$menu);
 
-        $sidebar = DB::table('category')->orderBy('position','ASC')->where('status',0)->get();
+        $sidebar = DB::table('category')->orderBy('position','ASC')->where([['status', '=', '0'],['parent_id', '=', '0']])->get();
         view()->share('sidebar',$sidebar);
 
-        $pages = AdminPages::all();
+        $pages = DB::table('pages')->where('cate_id',25)->get();
         view()->share('pages',$pages);
 
         // $news = AdminArticel::all();
@@ -35,6 +36,10 @@ class HomeController extends Controller
         // News related
         $relate = DB::table('articel')->where([['status', '=', '0'],['cate_id', '=', '22']])->limit(4)->get();
         view()->share('relate',$relate);
+
+        // utility / Khu tiện ích
+        $utility = DB::table('utility')->get();
+        view()->share('utility',$utility);
 	}
 
     public function home(){
@@ -91,6 +96,10 @@ class HomeController extends Controller
 
     }
 
+    // Utilitys
+    public function utility () {
+        return view('frontend.utilitys.index');
+    }
     public function category () {
         // return view('frontend.home.thanks');
     }

@@ -14,7 +14,7 @@
 		@endif
 		>
 	    <?php $i++; ?>
-		<a href="{{URL('danh-muc',[$side->id, $side->slug])}}.html"> {{$side->title_cate}}</a></li>
+		<a href="{{URL( $side->slug)}}.html"> {{$side->title_cate}}</a></li>
 		@endforeach
 	</ul>
 </div>

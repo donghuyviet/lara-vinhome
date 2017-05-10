@@ -47,11 +47,17 @@
                       <li><a href="/admin/articels">All Articels</a></li>
                     </ul>
                   </li>
+                  <li><a><i class="fa fa-desktop"></i> Utilitys <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="/admin/utilitys/add">Add New</a></li>
+                      <li><a href="/admin/utilitys">All Utilitys</a></li>
+                    </ul>
+                  </li>
                   <li><a><i class="fa fa-desktop"></i> Customers <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="/admin/customers">All Customers</a></li>
-                      <li><a href="/admin/customers/date">Statics Date</a></li>
-                      <li><a href="/admin/customers/month">Statics Month</a></li>
+                      <li><a href="/admin/customers/#">Statics Date</a></li>
+                      <li><a href="/admin/customers/#">Statics Month</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-desktop"></i> Galary <span class="fa fa-chevron-down"></span></a>
@@ -83,7 +89,7 @@
               <a data-toggle="tooltip" data-placement="top" title="Lock">
                 <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
             </div>

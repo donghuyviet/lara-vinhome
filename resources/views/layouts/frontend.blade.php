@@ -16,7 +16,12 @@
     <link href="/{{ config('app.source') }}/frontend/assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="/{{ config('app.source') }}/frontend/assets/css/animations.css" rel="stylesheet">
     <link href="/{{ config('app.source') }}/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/{{ config('app.source') }}/frontend/assets/css/style-fancybox.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/{{ config('app.source') }}/frontend/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+
     <!-- Scripts -->
+
 
     <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-precomposed.png">
     <link rel="icon" href="/{{ config('app.source') }}/frontend/assets/ico/home.ico">
@@ -28,6 +33,9 @@
     <script src="/{{ config('app.source') }}/frontend/assets/js/css3-animate-it.js"></script>
     <script src="/{{ config('app.source') }}/frontend/assets/js/common.js"></script>
     <script src="/{{ config('app.source') }}/js/jquery-confirm.js"></script>
+    <script src="/{{ config('app.source') }}/frontend/assets/js/jquery-1.4.3.min.js"></script>
+    <script type="text/javascript" src="/{{ config('app.source') }}/frontend/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+    <script type="text/javascript" src="/{{ config('app.source') }}/frontend/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
 
     <script>
 

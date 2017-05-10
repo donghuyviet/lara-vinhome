@@ -4,10 +4,10 @@
 <div class="container">
 	<div class="row">
 		<div class="top-bread">
-			<ol class="breadcrumb">
+			<!-- <ol class="breadcrumb">
 			  <li><a href="#">Trang chủ</a></li>
 			  <li class="active">Cảm ơn</li>
-			</ol>
+			</ol> -->
 		</div>
 
 		<div class="container contact">

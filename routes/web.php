@@ -114,6 +114,14 @@ Route::group(['prefix' => 'admin'], function () {
                 Route::post('/edit/{id}','AdminMemberController@update');
                 Route::get('/delete/{id}','AdminMemberController@delete');
             });
+            Route::group(['prefix'=>'utilitys'], function(){
+                Route::get('/','AdminUtilityController@index');
+                Route::get('/add','AdminUtilityController@add');
+                Route::post('/store','AdminUtilityController@store');
+                Route::get('/edit/{id}','AdminUtilityController@edit');
+                Route::post('/edit/{id}','AdminUtilityController@update');
+                Route::get('/delete/{id}','AdminMemberController@delete');
+            });
             Route::group(['prefix'=>'customers'], function(){
                 Route::get('/','AdminCustomerController@index');
                 Route::get('/date','AdminCustomerController@date');
@@ -137,10 +145,11 @@ Route::get('/download/{file}', 'HomeController@download');
 Route::get('danh-muc/{slug}.html','HomeController@category');
 
 // danh mục dự án
-Route::get('danh-muc.html','CategoryController@index');
+Route::get('du-an.html','CategoryController@index');
 
 Route::get('tin-tuc.html','NewsController@index');
 Route::get('tin-tuc/{id}/{slug}.html','NewsController@detail');
+Route::get('tien-ich.html','HomeController@utility');
 
 
 
@@ -150,18 +159,16 @@ Route::get('tin-tuc/{id}/{slug}.html','NewsController@detail');
 
 
 // redirect trang chủ khi sai url
-Route::any('{all?}','HomeController@home')->where('all','(.*)');
+// Route::any('{all?}','HomeController@home')->where('all','(.*)');
 
 Route::get('/api/keyword','ApiSearchController@index');
 Route::get('/api/search','ApiSearchController@get_job_in_keyrord');
 
 Route::get('/tables', function(){
-    Schema::create('customer', function ($table) {
+    Schema::create('utility', function ($table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('email');
-            $table->string('phone');
-            $table->string('address');
+            $table->string('images');
             $table->rememberToken();
             $table->timestamps();
         });

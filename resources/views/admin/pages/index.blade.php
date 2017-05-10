@@ -25,6 +25,7 @@
                             <th>Title</th>
                             <th>Slug</th>
                             <th>Description</th>
+                            <th>Category</th>
                             <th>satus</th>
                             <th>Create date</th>
                             <th>Update date</th>
@@ -38,6 +39,7 @@
                             <td>{{str_limit($pag->title, 100)}}</td>
                             <td>{{$pag->slug}}</td>
                             <td>{{str_limit($pag->description, 100)}}</td>
+                            <td>{{$pag->title_cate}}</td>
                             <td>@if($pag->status == 0) 
                                 Hiện
                                 @else

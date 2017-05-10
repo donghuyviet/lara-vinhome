@@ -13,24 +13,33 @@
             <div class="">
                 <div class="box-content">
                     <div class="text-center"><h2>add New Pages</h2></div>
-                    @include('error.error')
+                    @include('errors.error')
                     <form class="form-horizontal" method="POST" action="{{ url('/admin/pages/store') }}" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                         <div class="form-group">
-                            <label for="" class="col-sm-3 control-label">Title</label>
-                            <div class="col-sm-8">
+                            <label for="" class="col-sm-2 control-label">Title</label>
+                            <div class="col-sm-10">
                                 <input type="text" class="form-control" id="idtitle" placeholder="Tiêu đề bài biết" name="title">
                             </div>                            
                         </div>
                         <div class="form-group">
-                            <label for="" class="col-sm-3 control-label">Slug</label>
-                            <div class="col-sm-8">
+                            <label for="" class="col-sm-2 control-label">Slug</label>
+                            <div class="col-sm-10">
                                 <input type="text" class="form-control" id="idtitle" placeholder="Slug: slug-bai-viet" name="slug">
                             </div>                            
                         </div>
                         <div class="form-group">
-                            <label for="" class="col-sm-3 control-label">Description</label>
-                            <div class="col-sm-8">
+                            <label for="" class="col-sm-2 control-label">Category</label>
+                            <div class="col-sm-10">
+                            <select class="form-control" name="stlParent">
+                                    <option value="0"> Please Choose Category</option>
+                                    <?php cate_parent($cate); ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-2 control-label">Description</label>
+                            <div class="col-sm-10">
                                 <textarea class="form-control ckeditor" name="description"></textarea>
                                 <script type="text/javascript">
                                     config = {};
@@ -46,8 +55,8 @@
                             </div>                            
                         </div>
                         <div class="form-group">
-                            <label for="" class="col-sm-3 control-label">Status</label>
-                            <div class="col-sm-8">
+                            <label for="" class="col-sm-2 control-label">Status</label>
+                            <div class="col-sm-10">
                                 <label>
                                     <input type="radio" name="status" id="optionsRadios1" value="0" checked>
                                     Hiện

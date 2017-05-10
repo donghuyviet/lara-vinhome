@@ -17,19 +17,19 @@
                     <form class="form-horizontal" method="POST" action="{{ url('/admin/articels/store') }}" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                         <div class="form-group">
-                            <label for="" class="col-sm-2 control-label">Title</label>
+                            <label for="" class="col-sm-2 control-label">Title  (*)</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="idtitle" placeholder="Tiêu đề bài biết" name="title">
                             </div>                            
                         </div>
                         <div class="form-group">
-                            <label for="" class="col-sm-2 control-label">Slug</label>
+                            <label for="" class="col-sm-2 control-label">Slug (*)</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="idtitle" placeholder="Slug: slug-bai-viet" name="slug">
                             </div>                            
                         </div>
                         <div class="form-group">
-                            <label for="" class="col-sm-2 control-label">Category</label>
+                            <label for="" class="col-sm-2 control-label">Category  (*)</label>
                             <div class="col-sm-6">
                             <select class="form-control" name="stlParent">
                                     <option value="0"> Please Choose Category</option>
@@ -61,7 +61,7 @@
                             </div>                            
                         </div>
                         <div class="form-group">
-                            <label for="" class="col-sm-2 control-label">Description</label>
+                            <label for="" class="col-sm-2 control-label">Description  (*)</label>
                             <div class="col-sm-10">
                                 <textarea class="form-control ckeditor" name="description" ></textarea>
                                 <script type="text/javascript">

@@ -10,7 +10,10 @@ use Illuminate\Support\Facades\DB;
 class AdminPagesController extends Controller
 {
      public function index(){
-        $pages = AdminPages::paginate(1);
+        $pages = DB::table('pages')
+            ->join('category', 'pages.cate_id', '=', 'category.id')
+            ->select('pages.*', 'category.title_cate')
+            ->paginate(10);
     	return view('/admin/pages/index',['pages'=>$pages]);
     }
     public function add(){
@@ -38,6 +41,7 @@ class AdminPagesController extends Controller
             $AdminPages->title = $request->title;
             $AdminPages->slug = changTitle($request->slug);
             $AdminPages->description = $request->description;
+            $AdminPages->cate_id = $request->stlParent;
             $AdminPages->status = $request->status;
             $AdminPages->save();
             return redirect('/admin/pages')-> with('success', 'add '.$AdminPages -> title.' success');
@@ -67,6 +71,7 @@ class AdminPagesController extends Controller
             $category->id = $request->id;
             $category->title = $request->title;
             $category->slug = changTitle($request->slug);
+            $category->cate_id = $request->stlParent;
             $category->description = $request->description;
             $category->status = $request->status;
 

@@ -13,6 +13,7 @@ class AdminPages extends Model
         'title',
         'slug',
         'description',
+        'cate_id',
         'status',
     ];
 }
